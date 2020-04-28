@@ -1,0 +1,67 @@
+@import "_constants.scss";
+
+body {
+    background-color: $colorWhite;
+    color: $colorDentist;
+    font-family: "Ubuntu", "Times New Roman", Times, serif;
+}
+
+*,
+ul,
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn {
+    color: $colorDentist;
+    border: $colorDentist solid 1px;
+}
+
+header {
+    // transform: skewY(5deg) translate3d(0, 0, 0);
+}
+
+main {
+    height: 200vh;
+    padding-top: 100px;
+    section {
+        min-height: 200px;
+        transform: skewY(5deg) translate3d(0, 0, 0);
+        background-color: $colorDentist;
+        color: $colorWhite;
+        padding: 20px 5px;
+        > div {
+            transform: skewY(-5deg) translate3d(0, 0, 0);
+            height: 100%;
+            > .sectionTitle {
+                text-align: center;
+            }
+            > ul {
+                > li {
+                    text-align: center;
+                    height: fit-content;
+                    margin: 25px 0px;
+                    > img {
+                        margin: 10px 0px;
+                        width: 200px;
+                        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+                    }
+                    > .description {
+                        height: 100px;
+                        overflow-y: hidden;
+                    }
+                }
+            }
+        }
+    }
+}
