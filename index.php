@@ -36,8 +36,8 @@
                 nextArrow: '<i class="demo-icon icon-ico_arrow-right slick-my-prev"></i>',
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                // autoplay: true,
-                // autoplaySpeed: 3000,
+                autoplay: true,
+                autoplaySpeed: 3000,
                 dots: true,
                 arrows: false,
                 responsive: [{
