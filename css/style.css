@@ -25,18 +25,111 @@ a {
   border: #54cad3 solid 1px;
 }
 
+header {
+  background-color: #4e4f4e;
+}
+
+header::after {
+  content: "";
+  height: 100px;
+  width: 100vw;
+  position: absolute;
+  -webkit-transform: skewY(5deg) translate3d(0, 0, 0);
+  transform: skewY(5deg) translate3d(0, 0, 0);
+  background-color: #4e4f4e;
+  top: 2px;
+  z-index: -2;
+  -webkit-transition-property: height, transform, background-color;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-property: height, background-color, -webkit-transform;
+  transition-property: height, background-color, -webkit-transform;
+  transition-property: height, transform, background-color;
+  transition-property: height, transform, background-color, -webkit-transform;
+  transition-duration: 0.3s;
+}
+
+header > div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  -webkit-transition-property: padding;
+  -webkit-transition-duration: 0.3s;
+  transition-property: padding;
+  transition-duration: 0.3s;
+}
+
+header > div #logo {
+  height: 50px;
+  -webkit-transform: translateX(25%);
+          transform: translateX(25%);
+  -webkit-transition-property: height, transform, color;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-property: height, color, -webkit-transform;
+  transition-property: height, color, -webkit-transform;
+  transition-property: height, transform, color;
+  transition-property: height, transform, color, -webkit-transform;
+  transition-duration: 0.3s;
+  color: white;
+}
+
+header.headerSticky {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+header.headerSticky::after {
+  height: 50px;
+  -webkit-transform: skewY(0deg) translate3d(0, 0, 0);
+  transform: skewY(0deg) translate3d(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+header.headerSticky > div {
+  padding-top: 15px;
+}
+
+header.headerSticky > div #logo {
+  height: 30px;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  color: #54cad3;
+}
+
+header.headerOpened > div {
+  padding-top: 15px;
+}
+
+header.headerOpened > div #logo {
+  height: 30px;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  color: #54cad3;
+}
+
 main {
-  height: 200vh;
   padding-top: 100px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 main section {
-  min-height: 200px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 100vh;
   -webkit-transform: skewY(5deg) translate3d(0, 0, 0);
           transform: skewY(5deg) translate3d(0, 0, 0);
   background-color: #54cad3;
   color: white;
-  padding: 20px 5px;
+  padding: 25px 5px;
+  margin: -50px 0px;
+}
+
+main section:first-child {
+  margin-top: 0px;
+}
+
+main section:last-child {
+  margin-bottom: 0px;
 }
 
 main section > div {
@@ -47,25 +140,73 @@ main section > div {
 
 main section > div > .sectionTitle {
   text-align: center;
+  margin-bottom: 10px;
 }
 
-main section > div > ul > li {
+main #workplace > div > .slideClinic {
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+main #workplace > div > .slideClinic img {
+  width: 100%;
+  height: 200px;
+}
+
+main #workplace > div > .slideClinic .slick-dots li button:before {
+  color: white;
+}
+
+main #workplace > div > p {
+  text-align: justify;
+}
+
+main #team > div > ul > li {
   text-align: center;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  margin: 25px 0px;
+  margin-bottom: 25px;
 }
 
-main section > div > ul > li > img {
+main #team > div > ul > li > img {
   margin: 10px 0px;
+  margin-bottom: 10px;
   width: 200px;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
-main section > div > ul > li > .description {
+main #team > div > ul > li > .description {
   height: 100px;
   overflow-y: hidden;
+}
+
+main img.break {
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  padding: 20px 5px;
+}
+
+@media (min-width: 600px) {
+  header.headerSticky > div {
+    padding-top: 0px;
+  }
+  header.headerSticky nav > ul > li > ul {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  main #workplace > div .slideClinic img {
+    height: 500px;
+  }
+  main #team > div > ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

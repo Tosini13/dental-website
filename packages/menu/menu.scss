@@ -1,23 +1,25 @@
 @import "../../css/constants";
 
 header {
-    overflow: hidden;
     position: fixed;
     z-index: 10;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     $padding: 5px;
-    padding: $padding;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 1);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    > div {
+        padding: 15px $padding;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
     #logo {
         height: 30px;
         display: flex;
         align-items: center;
+        z-index: -1;
         > img {
             filter: invert(100%);
             height: inherit;
@@ -25,7 +27,6 @@ header {
         }
         > h1 {
             font-size: 25px;
-            z-index: -1;
         }
     }
     #hamburger {
@@ -44,7 +45,6 @@ header {
             left: 0;
             border-radius: 10px;
             background-color: $colorDentist;
-            // background-color: black;
             transform: translate(0%, 0%);
             font-size: 0px;
 
@@ -60,7 +60,6 @@ header {
         &.hamburgerOpened {
             > div {
                 background-color: $colorWhite;
-                // box-shadow: 0px 0px 1px 1.5px $colorWhite;
             }
             > div:nth-child(1) {
                 transform: translate(0%, #{$height / 3}) rotateZ(45deg);
@@ -118,12 +117,14 @@ header {
                     transition-duration: 0.3s;
                     > li {
                         border-top: rgba(255, 255, 255, 0.3) solid 0px;
-                        transition-property: border;
+                        max-height: 0px;
+                        transition-property: border, max-height;
                         transition-duration: 0.3s;
                         > a {
                             transform: translateY(20px);
                             opacity: 0;
-                            transition-property: opacity, transform;
+                            padding: 0px;
+                            transition-property: opacity, transform, padding;
                             transition-duration: 0.7s;
                         }
                     }
@@ -131,10 +132,12 @@ header {
                         max-height: 100vh;
                         font-size: 0.9em;
                         > li {
+                            max-height: 200vh;
                             border-top: rgba(255, 255, 255, 0.3) solid 0.5px;
                             > a {
                                 transform: translateY(0px);
                                 opacity: 1;
+                                padding: 15px 2px;
                             }
                         }
                     }
@@ -165,7 +168,93 @@ header {
             }
             > p.navPhone {
                 opacity: 1;
-                transform: translateY(-40px);
+                transform: translateY(-35px);
+            }
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    header {
+        > div {
+            padding: 0px;
+            #hamburger {
+                display: none;
+            }
+            nav {
+                position: relative;
+                height: 80px;
+                width: fit-content;
+                opacity: 1;
+                transform: translateX(0%);
+                background-color: transparent;
+                color: $colorDentist;
+                padding: 5px;
+                padding-bottom: 0px;
+                margin-right: 50px;
+                z-index: auto;
+                p.navPhone {
+                    display: none;
+                }
+                > ul {
+                    flex-direction: row;
+                    overflow: initial;
+                    justify-content: space-around;
+                    align-items: center;
+                    font-size: 18px;
+                    > li {
+                        height: 100%;
+                        position: relative;
+                        border-bottom: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        > a {
+                            transform: translateX(0px);
+                            opacity: 1;
+                            cursor: pointer;
+                            transition: color 0.4s;
+                        }
+                        &::after {
+                            content: "";
+                            background-color: transparent;
+                            height: 15px;
+                            width: 100%;
+                            position: absolute;
+                            bottom: 0px;
+                            left: 0px;
+                            transform: translateY(100%);
+                        }
+                        > ul {
+                            position: absolute;
+                            bottom: -10px;
+                            left: 0px;
+                            transform: translateY(100%);
+                            background-color: $colorGray;
+                            width: 100%;
+                            > li {
+                                a {
+                                    cursor: pointer;
+                                    transition: color 0.4s;
+                                }
+                                &:hover {
+                                    > a {
+                                        color: $colorWhite;
+                                    }
+                                }
+                            }
+
+                            > li:first-child {
+                                border-top: none;
+                            }
+                        }
+                        &:hover {
+                            > a {
+                                color: $colorWhite;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

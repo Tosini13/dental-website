@@ -28,31 +28,127 @@ a {
 }
 
 header {
-    // transform: skewY(5deg) translate3d(0, 0, 0);
+    background-color: $colorGray;
+    &::after {
+        content: "";
+        height: 100px;
+        width: 100vw;
+        position: absolute;
+        -webkit-transform: skewY(5deg) translate3d(0, 0, 0);
+        transform: skewY(5deg) translate3d(0, 0, 0);
+        background-color: $colorGray;
+        top: 2px;
+        z-index: -2;
+        -webkit-transition-property: height, transform, background-color;
+        -webkit-transition-duration: 0.3s;
+        transition-property: height, transform, background-color;
+        transition-duration: 0.3s;
+    }
+    > div {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        -webkit-transition-property: padding;
+        -webkit-transition-duration: 0.3s;
+        transition-property: padding;
+        transition-duration: 0.3s;
+        #logo {
+            height: 50px;
+            transform: translateX(25%);
+            -webkit-transition-property: height, transform, color;
+            -webkit-transition-duration: 0.3s;
+            transition-property: height, transform, color;
+            transition-duration: 0.3s;
+            color: white;
+        }
+    }
+    &.headerSticky {
+        background-color: rgba(0, 0, 0, 0.8);
+        &::after {
+            height: 50px;
+            -webkit-transform: skewY(0deg) translate3d(0, 0, 0);
+            transform: skewY(0deg) translate3d(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0);
+        }
+        > div {
+            padding-top: 15px;
+            #logo {
+                height: 30px;
+                transform: translateX(0%);
+                color: $colorDentist;
+            }
+        }
+    }
+    &.headerOpened {
+        > div {
+            padding-top: 15px;
+            #logo {
+                height: 30px;
+                transform: translateX(0%);
+                color: $colorDentist;
+            }
+        }
+    }
 }
 
 main {
-    height: 200vh;
     padding-top: 100px;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
     section {
-        min-height: 200px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        min-height: 100vh;
         transform: skewY(5deg) translate3d(0, 0, 0);
         background-color: $colorDentist;
         color: $colorWhite;
-        padding: 20px 5px;
+        padding: 25px 5px;
+        margin: -50px 0px;
+        &:first-child {
+            margin-top: 0px;
+        }
+        &:last-child {
+            margin-bottom: 0px;
+        }
         > div {
             transform: skewY(-5deg) translate3d(0, 0, 0);
             height: 100%;
             > .sectionTitle {
                 text-align: center;
+                margin-bottom: 10px;
             }
+        }
+    }
+
+    #workplace {
+        > div {
+            > .slideClinic {
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+                img {
+                    width: 100%;
+                    height: 200px;
+                }
+                .slick-dots li button:before {
+                    color: white;
+                }
+            }
+            > p {
+                text-align: justify;
+            }
+        }
+    }
+
+    #team {
+        > div {
             > ul {
                 > li {
                     text-align: center;
                     height: fit-content;
-                    margin: 25px 0px;
+                    margin-bottom: 25px;
                     > img {
                         margin: 10px 0px;
+                        margin-bottom: 10px;
                         width: 200px;
                         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
                     }
@@ -60,6 +156,54 @@ main {
                         height: 100px;
                         overflow-y: hidden;
                     }
+                }
+            }
+        }
+    }
+
+    img.break {
+        width: 100%;
+        height: auto;
+    }
+}
+
+footer {
+    padding: 20px 5px;
+}
+
+@media (min-width: 600px) {
+    header {
+        &.headerSticky {
+            > div {
+                padding-top: 0px;
+            }
+            nav {
+                > ul {
+                    > li {
+                        > ul {
+                            background-color: rgba(0, 0, 0, 0.8);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    main {
+        #workplace {
+            > div {
+                .slideClinic {
+                    img {
+                        height: 500px;
+                    }
+                }
+            }
+        }
+        #team {
+            > div {
+                > ul {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 50px;
                 }
             }
         }

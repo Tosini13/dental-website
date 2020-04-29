@@ -4,16 +4,24 @@ var desktopWidth = 650;
 
 function mobileMenu() {
     let hamburger = document.getElementById("hamburger");
+    let header = document.querySelector("header");
     let menu = document.querySelector("header nav");
     let headers = document.querySelectorAll("header nav > ul > li > a");
     let subMenus = menu.querySelectorAll("header nav > ul > li > ul");
+
+    function headerToggle() {
+        if (header.classList.contains("headerOpened")) {
+            header.classList.remove("headerOpened");
+        } else {
+            header.classList.add("headerOpened");
+        }
+    }
 
     function closeAllSubMenus() {
         for (let subMenu of subMenus) {
             subMenu.classList.remove("subMenuOpened");
         }
     }
-
 
     function menuToggle() {
         if (menu.classList.contains("navOpened")) {
@@ -37,6 +45,7 @@ function mobileMenu() {
     function menuManager() {
         menuToggle();
         hamburgerToggle();
+        headerToggle();
     }
 
     hamburger.addEventListener("click", () => {
@@ -92,3 +101,22 @@ window.addEventListener("resize", function () {
     console.log("resize");
     mobileMenu();//make a class!
 });
+
+
+function myFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("myP").className = "test";
+    } else {
+        document.getElementById("myP").className = "";
+    }
+}
+
+
+function headerStickyToggle() {
+    let header = document.querySelector("header");
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        header.classList.add("headerSticky");
+    } else {
+        header.classList.remove("headerSticky");
+    }
+}
