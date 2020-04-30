@@ -1,6 +1,6 @@
 //screenWidth
 var screenWidth = screen.width;
-var desktopWidth = 650;
+var desktopWidth = 800;
 
 function mobileMenu() {
     let hamburger = document.getElementById("hamburger");

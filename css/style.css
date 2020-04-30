@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: #4e4f4e;
   color: #54cad3;
   font-family: "Ubuntu", "Times New Roman", Times, serif;
 }
@@ -22,7 +22,18 @@ a {
 
 .btn {
   color: #54cad3;
-  border: #54cad3 solid 1px;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #54cad3;
+  padding: 7px 15px;
+  text-transform: lowercase;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -webkit-transition: color 0.5s, transform 0.3s, opacity 0.3s, border-bottom 0.5s;
+  -webkit-transition: color 0.5s, opacity 0.3s, border-bottom 0.5s, -webkit-transform 0.3s;
+  transition: color 0.5s, opacity 0.3s, border-bottom 0.5s, -webkit-transform 0.3s;
+  transition: color 0.5s, transform 0.3s, opacity 0.3s, border-bottom 0.5s;
+  transition: color 0.5s, transform 0.3s, opacity 0.3s, border-bottom 0.5s, -webkit-transform 0.3s;
 }
 
 header {
@@ -109,6 +120,8 @@ main {
   max-width: 980px;
   margin-left: auto;
   margin-right: auto;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
 }
 
 main section {
@@ -140,6 +153,9 @@ main section > div {
 main section > div > .sectionTitle {
   text-align: center;
   margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 40px;
+  font-family: "Alegreya", "Courier New", Courier, monospace;
 }
 
 main #workplace > div > .slideClinic {
@@ -224,6 +240,7 @@ main #service > div > ul > li > div {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
+  overflow: hidden;
 }
 
 main #service > div > ul > li > div > img {
@@ -250,6 +267,15 @@ main #service > div > ul > li > div > .serviceDescription {
           transition-duration: 0.3s;
 }
 
+main #service > div > ul > li > div .btn {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
 main #service > div > ul > li.serviceOpened {
   opacity: 1;
 }
@@ -263,6 +289,12 @@ main #service > div > ul > li.serviceOpened > div > .serviceDescription {
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
+}
+
+main #service > div > ul > li.serviceOpened > div .btn {
+  opacity: 1;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
 }
 
 main #price > div > table {
@@ -302,6 +334,8 @@ footer {
   padding: 20px 5px 30px 5px;
   z-index: 2;
   min-height: 150px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
 footer #contact {
@@ -360,13 +394,29 @@ footer::after {
   z-index: -1;
 }
 
+footer .myBusinessCard {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  margin: 0px auto;
+  font-size: 20px;
+}
+
+footer .myBusinessCard > span {
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+footer .myBusinessCard:hover > span {
+  text-shadow: 0px 0px 1px #54cad3;
+  color: white;
+}
+
 @media (min-width: 600px) {
-  header.headerSticky > div {
-    padding-top: 0px;
-  }
-  header.headerSticky nav > ul > li > ul {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
   main > section {
     padding: 50px 5px 75px 5px;
   }
@@ -384,8 +434,8 @@ footer::after {
     grid-gap: 50px;
   }
   main #service > div > ul {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
     grid-gap: 50px;
   }
   main #service > div > ul > li {
@@ -403,6 +453,23 @@ footer::after {
   }
   footer #contact > p {
     margin-right: 20px;
+  }
+}
+
+@media (min-width: 980px) {
+  .btn:hover {
+    color: white;
+  }
+  main #service > div > ul {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+  }
+  main #service > div > ul > li {
+    cursor: pointer;
+  }
+  main #service > div > ul > li.serviceOpened .btn:hover {
+    border-bottom: rgba(0, 0, 0, 0.8) solid 4px;
   }
 }
 /*# sourceMappingURL=style.css.map */

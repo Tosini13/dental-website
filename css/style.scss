@@ -1,7 +1,7 @@
 @import "_constants.scss";
 
 body {
-    background-color: $colorWhite;
+    background-color: $colorGray;
     color: $colorDentist;
     font-family: "Ubuntu", "Times New Roman", Times, serif;
 }
@@ -24,7 +24,14 @@ a {
 
 .btn {
     color: $colorDentist;
-    border: $colorDentist solid 1px;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
+    background-color: $colorDentist;
+    padding: 7px 15px;
+    text-transform: lowercase;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    -webkit-transition: color 0.5s, transform 0.3s, opacity 0.3s, border-bottom 0.5s;
+    transition: color 0.5s, transform 0.3s, opacity 0.3s, border-bottom 0.5s;
 }
 
 header {
@@ -95,6 +102,7 @@ main {
     max-width: 980px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
     section {
         position: relative;
         z-index: 1;
@@ -117,6 +125,9 @@ main {
             > .sectionTitle {
                 text-align: center;
                 margin-bottom: 20px;
+                color: rgba(0, 0, 0, 0.8);
+                font-size: 40px;
+                font-family: "Alegreya", "Courier New", Courier, monospace;
             }
         }
     }
@@ -187,9 +198,9 @@ main {
                         width: 100%;
                         display: flex;
                         flex-direction: column-reverse;
+                        overflow: hidden;
                         > img {
                             width: 100%;
-                            // transition: filter 0.1s;
                         }
                         > .serviceDescription {
                             text-align: justify;
@@ -204,6 +215,13 @@ main {
                             transition-property: opacity, transform;
                             transition-duration: 0.3s;
                         }
+                        .btn {
+                            position: absolute;
+                            bottom: 5px;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            opacity: 0;
+                        }
                     }
                     &.serviceOpened {
                         opacity: 1;
@@ -214,6 +232,10 @@ main {
                             > .serviceDescription {
                                 opacity: 1;
                                 transform: translateY(0px);
+                            }
+                            .btn {
+                                opacity: 1;
+                                transform: translate(-50%, 0%);
                             }
                         }
                     }
@@ -260,6 +282,7 @@ footer {
     padding: 20px 5px 30px 5px;
     z-index: 2;
     min-height: 150px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
     #contact {
         display: flex;
         flex-direction: column;
@@ -295,25 +318,26 @@ footer {
         background-color: black;
         z-index: -1;
     }
+    .myBusinessCard {
+        display: block;
+        width: fit-content;
+        padding: 5px;
+        margin: 0px auto;
+        font-size: 20px;
+        > span {
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+    }
+    .myBusinessCard:hover {
+        > span {
+            text-shadow: 0px 0px 1px $colorDentist;
+            color: white;
+        }
+    }
 }
 
 @media (min-width: 600px) {
-    header {
-        &.headerSticky {
-            > div {
-                padding-top: 0px;
-            }
-            nav {
-                > ul {
-                    > li {
-                        > ul {
-                            background-color: rgba(0, 0, 0, 0.8);
-                        }
-                    }
-                }
-            }
-        }
-    }
     main {
         > section {
             padding: 50px 5px 75px 5px;
@@ -345,7 +369,7 @@ footer {
         #service {
             > div {
                 > ul {
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
                     grid-gap: 50px;
                     > li {
                         cursor: pointer;
@@ -363,6 +387,31 @@ footer {
             max-width: 980px;
             > p {
                 margin-right: 20px;
+            }
+        }
+    }
+}
+
+@media (min-width: 980px) {
+    .btn:hover {
+        color: white;
+    }
+
+    main {
+        #service {
+            > div {
+                > ul {
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 50px;
+                    > li {
+                        cursor: pointer;
+                        &.serviceOpened {
+                            .btn:hover {
+                                border-bottom: rgba(0, 0, 0, 0.8) solid 4px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

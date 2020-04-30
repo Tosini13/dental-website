@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dentist</title>
     <meta name="description" content="Dentist's website">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:700|Ubuntu&display=swap" rel="stylesheet">
     <link href="packages/fontello/css/fontello.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
@@ -32,31 +33,12 @@
     <script>
         $(document).ready(function() {
             $(".slideClinic").slick({
-                prevArrow: '<i class="demo-icon icon-ico_arrow-left slick-my-next"></i>',
-                nextArrow: '<i class="demo-icon icon-ico_arrow-right slick-my-prev"></i>',
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: 3000,
                 dots: true,
                 arrows: false,
-                responsive: [{
-                    breakpoint: 980,
-                    settings: {
-                        dots: true,
-                        arrows: false,
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                    }
-                }, {
-                    breakpoint: 650,
-                    settings: {
-                        dots: true,
-                        arrows: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                }]
             });
 
         });
