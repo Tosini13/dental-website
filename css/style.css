@@ -187,24 +187,54 @@ main #workplace > div > p {
 }
 
 main #team > div > ul > li {
+  position: relative;
   text-align: center;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   margin-bottom: 25px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #4e4f4e;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #team > div > ul > li > .title {
+  color: #54cad3;
 }
 
 main #team > div > ul > li > img {
   margin: 10px 0px;
   margin-bottom: 10px;
   width: 200px;
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
 main #team > div > ul > li > .description {
-  height: 100px;
-  overflow-y: hidden;
+  position: relative;
+  text-align: justify;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main #service > div > ul {
