@@ -70,6 +70,7 @@ header {
     }
     &.headerSticky {
         background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
         &::after {
             height: 50px;
             -webkit-transform: skewY(0deg) translate3d(0, 0, 0);
@@ -92,6 +93,7 @@ header {
                 height: 30px;
                 transform: translateX(0%);
                 color: $colorDentist;
+                z-index: -1;
             }
         }
     }
@@ -135,6 +137,9 @@ main {
     #workplace {
         > div {
             > .slideClinic {
+                left: 50%;
+                transform: translate(-50%, 0%);
+                width: calc(100% + 10px);
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
                 img {
                     width: 100%;
@@ -221,6 +226,7 @@ main {
                             left: 50%;
                             transform: translate(-50%, -50%);
                             opacity: 0;
+                            z-index: -1;
                         }
                     }
                     &.serviceOpened {
@@ -236,6 +242,7 @@ main {
                             .btn {
                                 opacity: 1;
                                 transform: translate(-50%, 0%);
+                                z-index: 0;
                             }
                         }
                     }

@@ -2,7 +2,9 @@
 var screenWidth = screen.width;
 var desktopWidth = 800;
 
+
 function mobileMenu() {
+
     let hamburger = document.getElementById("hamburger");
     let header = document.querySelector("header");
     let menu = document.querySelector("header nav");
@@ -54,7 +56,6 @@ function mobileMenu() {
 
     for (let header of headers) {
         let subMenu = header.nextElementSibling;
-        console.log(headers);
         header.addEventListener("click", () => {
             if (subMenu.classList.contains("subMenuOpened")) {
                 subMenu.classList.remove("subMenuOpened");
@@ -65,7 +66,6 @@ function mobileMenu() {
         });
 
         if (screenWidth > desktopWidth) {
-            console.log(screenWidth);
             header.addEventListener("mouseenter", () => {
                 closeAllSubMenus();
                 subMenu.classList.add("subMenuOpened");
@@ -76,25 +76,35 @@ function mobileMenu() {
         }
     }
 
-    var subBtns = document.querySelectorAll('nav.menu > ul > li > ul > li > a');
-    for (let subBtn of subBtns) {
-        subBtn.addEventListener("click", scrollMenuTo);
+    //SCROLL MENU
+    let subBtns = document.querySelectorAll('header > div nav > ul > li > ul > li a');
+    console.log(subBtns);
+    for (let subMenu of subBtns) {
+        subMenu.addEventListener("click", scrollMenuTo);
     }
 
-    //MENU SCROLL
-    var menuHeight = document.getElementsByTagName('nav')[0].offsetHeight;
+
     function scrollMenuTo() {
+        let menuHeight = document.getElementsByTagName('header')[0].offsetHeight;
+        let addHeight = 0;
+        if (screenWidth > 800) {
+            addHeight = menuHeight;
+        } else {
+            addHeight = menuHeight;
+        }
         if (this.getAttribute('data-section')) {
             let section = document.getElementById(this.getAttribute('data-section'));
-            let addHeight = 0;
-            if (screenWidth < desktopWidth) {
-                menuManager();
-            }
-            window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+            window.scrollTo({ top: (section.offsetTop - addHeight), behavior: 'smooth' });
+            menuManager();
         }
+        //  else if (this.getAttribute('data-popup')) {
+        //     console.log(this.getAttribute('data-popup'));
+        //     document.getElementById(this.getAttribute('data-popup')).classList.add("bigPopupsOpen");
+        // }
     }
 }
 mobileMenu();
+
 
 window.addEventListener("resize", function () {
     screenWidth = screen.width;
@@ -102,19 +112,9 @@ window.addEventListener("resize", function () {
     mobileMenu();//make a class!
 });
 
-
-function myFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById("myP").className = "test";
-    } else {
-        document.getElementById("myP").className = "";
-    }
-}
-
-
 function headerStickyToggle() {
     let header = document.querySelector("header");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
         header.classList.add("headerSticky");
     } else {
         header.classList.remove("headerSticky");

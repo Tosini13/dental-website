@@ -84,6 +84,8 @@ header > div #logo {
 
 header.headerSticky {
   background-color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
 header.headerSticky::after {
@@ -113,6 +115,7 @@ header.headerOpened > div #logo {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
   color: #54cad3;
+  z-index: -1;
 }
 
 main {
@@ -159,6 +162,10 @@ main section > div > .sectionTitle {
 }
 
 main #workplace > div > .slideClinic {
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  width: calc(100% + 10px);
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
@@ -274,6 +281,7 @@ main #service > div > ul > li > div .btn {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   opacity: 0;
+  z-index: -1;
 }
 
 main #service > div > ul > li.serviceOpened {
@@ -295,6 +303,7 @@ main #service > div > ul > li.serviceOpened > div .btn {
   opacity: 1;
   -webkit-transform: translate(-50%, 0%);
           transform: translate(-50%, 0%);
+  z-index: 0;
 }
 
 main #price > div > table {
