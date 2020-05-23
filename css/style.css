@@ -161,7 +161,7 @@ main section > div > .sectionTitle {
   font-family: "Alegreya", "Courier New", Courier, monospace;
 }
 
-main #workplace > div > .slideClinic {
+main #workplace > div > #slideClinic {
   left: 50%;
   -webkit-transform: translate(-50%, 0%);
           transform: translate(-50%, 0%);
@@ -170,12 +170,12 @@ main #workplace > div > .slideClinic {
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
-main #workplace > div > .slideClinic img {
+main #workplace > div > #slideClinic img {
   width: 100%;
   height: 200px;
 }
 
-main #workplace > div > .slideClinic .slick-dots li button:before {
+main #workplace > div > #slideClinic .slick-dots li button:before {
   content: "";
   height: 3px;
   background-color: white;
@@ -184,6 +184,8 @@ main #workplace > div > .slideClinic .slick-dots li button:before {
 
 main #workplace > div > p {
   text-align: justify;
+  padding: 5px 20px;
+  font-size: 18px;
 }
 
 main #team > div > ul > li {
@@ -191,6 +193,7 @@ main #team > div > ul > li {
   text-align: center;
   margin-bottom: 25px;
   max-width: 300px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   background-color: #4e4f4e;
@@ -208,10 +211,16 @@ main #team > div > ul > li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 main #team > div > ul > li > .title {
   color: #54cad3;
+}
+
+main #team > div > ul > li > .title > span {
+  margin-right: 5px;
 }
 
 main #team > div > ul > li > img {
@@ -265,6 +274,7 @@ main #service > div > ul > li > .serviceTitle {
   text-align: center;
   padding: 10px;
   color: #54cad3;
+  text-transform: capitalize;
 }
 
 main #service > div > ul > li > div {
@@ -351,11 +361,13 @@ main #price > div > table tr th {
   font-size: 20px;
   color: white;
   padding: 5px;
+  text-transform: capitalize;
 }
 
 main #price > div > table tr td {
   text-align: center;
   padding: 5px;
+  text-transform: capitalize;
 }
 
 main #price > div > table tr:last-child {
@@ -455,6 +467,72 @@ footer .myBusinessCard:hover > span {
   color: white;
 }
 
+.startPage {
+  background-color: #54cad3;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  z-index: 11;
+  -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+  -webkit-transition: opacity 0.5s ease, transform 0.5s ease 0.5s;
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease 0.5s;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease 0.5s;
+  transition: opacity 0.5s ease, transform 0.5s ease 0.5s;
+  transition: opacity 0.5s ease, transform 0.5s ease 0.5s, -webkit-transform 0.5s ease 0.5s;
+}
+
+.startPage > img {
+  max-width: 80%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: logoShine 3s infinite;
+          animation: logoShine 3s infinite;
+}
+
+@-webkit-keyframes logoShine {
+  0% {
+    -webkit-filter: invert(0%);
+            filter: invert(0%);
+  }
+  50% {
+    -webkit-filter: invert(200%);
+            filter: invert(200%);
+  }
+  100% {
+    -webkit-filter: invert(0%);
+            filter: invert(0%);
+  }
+}
+
+@keyframes logoShine {
+  0% {
+    -webkit-filter: invert(0%);
+            filter: invert(0%);
+  }
+  50% {
+    -webkit-filter: invert(200%);
+            filter: invert(200%);
+  }
+  100% {
+    -webkit-filter: invert(0%);
+            filter: invert(0%);
+  }
+}
+
+.startPageClosed {
+  opacity: 0;
+  -webkit-transform: translate(0%, -200%);
+          transform: translate(0%, -200%);
+}
+
 @media (min-width: 600px) {
   main > section {
     padding: 50px 5px 75px 5px;
@@ -462,7 +540,7 @@ footer .myBusinessCard:hover > span {
   main > section > div > .sectionTitle {
     margin-bottom: 50px;
   }
-  main #workplace > div .slideClinic img {
+  main #workplace > div #slideClinic img {
     height: 500px;
   }
   main #team > div > ul {

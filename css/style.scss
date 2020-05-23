@@ -136,7 +136,7 @@ main {
 
     #workplace {
         > div {
-            > .slideClinic {
+            > #slideClinic {
                 left: 50%;
                 transform: translate(-50%, 0%);
                 width: calc(100% + 10px);
@@ -154,6 +154,8 @@ main {
             }
             > p {
                 text-align: justify;
+                padding: 5px 20px;
+                font-size: 18px;
             }
         }
     }
@@ -166,6 +168,7 @@ main {
                     text-align: center;
                     margin-bottom: 25px;
                     max-width: 300px;
+                    width: 100%;
                     margin-left: auto;
                     margin-right: auto;
                     background-color: $colorGray;
@@ -175,8 +178,12 @@ main {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    box-sizing: border-box;
                     > .title {
                         color: $colorDentist;
+                        > span {
+                            margin-right: 5px;
+                        }
                     }
                     > img {
                         margin: 10px 0px;
@@ -213,6 +220,7 @@ main {
                         text-align: center;
                         padding: 10px;
                         color: $colorDentist;
+                        text-transform: capitalize;
                     }
                     > div {
                         position: relative;
@@ -280,10 +288,12 @@ main {
                         font-size: 20px;
                         color: $colorWhite;
                         padding: 5px;
+                        text-transform: capitalize;
                     }
                     td {
                         text-align: center;
                         padding: 5px;
+                        text-transform: capitalize;
                     }
                     &:last-child {
                         border-bottom: none;
@@ -360,6 +370,45 @@ footer {
     }
 }
 
+.startPage {
+    background-color: $colorDentist;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    z-index: 11;
+    transform: translate(0%, 0%);
+    -webkit-transition: opacity 0.5s ease, transform 0.5s ease 0.5s;
+    transition: opacity 0.5s ease, transform 0.5s ease 0.5s;
+    > img {
+        max-width: 80%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: logoShine 3s infinite;
+    }
+    @keyframes logoShine {
+        0% {
+            filter: invert(0%);
+        }
+        50% {
+            filter: invert(200%);
+        }
+        100% {
+            filter: invert(0%);
+        }
+    }
+}
+
+.startPageClosed {
+    opacity: 0;
+    transform: translate(0%, -200%);
+}
+
 @media (min-width: 600px) {
     main {
         > section {
@@ -372,7 +421,7 @@ footer {
         }
         #workplace {
             > div {
-                .slideClinic {
+                #slideClinic {
                     img {
                         height: 500px;
                     }

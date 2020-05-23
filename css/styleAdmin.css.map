@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,MADE,GACA,CAAC,CAAC;EACA,MAAM,EAAE,SAAS;EACjB,KAAK,EAAE,WAAW;CACrB",
+    "sources": [
+        "styleAdmin.scss"
+    ],
+    "names": [],
+    "file": "styleAdmin.css"
+}
